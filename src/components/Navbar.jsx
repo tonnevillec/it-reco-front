@@ -6,7 +6,7 @@ const Navbar = () => {
     return (<>
             <header className="z-100 fixed top-0 left-0 w-full navbar bg-base-100 shadow-sm p-4">
                 <div className="navbar-start">
-                    <Link smooth spy to={"top"} className="text-xl text-white">
+                    <Link smooth spy to={"section-header"} className="cursor-pointer">
                         <img src={logo} className={"max-h-12"} alt={"Logo de serre-vis informatique"} />
                     </Link>
 
