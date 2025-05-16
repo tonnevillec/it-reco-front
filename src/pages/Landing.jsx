@@ -9,6 +9,7 @@ import {Link} from "react-scroll";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDollarSign, faLeaf, faRecycle} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import BoutiquePreview from "./boutique/BoutiquePreview.jsx";
 
 const Landing = () => {
     return (
@@ -276,11 +277,7 @@ const Landing = () => {
                         <div className="h-1 w-20 bg-primary rounded"></div>
                     </div>
 
-                    <div className="flex flex-col gap-4 text-center w-full">
-                        <span className={"font-bold text-xl"}>Aucune offre pour le moment</span>
-                    </div>
-
-                    {/*#TODO*/}
+                    <BoutiquePreview />
                 </div>
             </section>
 
