@@ -25,7 +25,10 @@ export default {
     themes: ["emerald"],
   },
   safelist: [
-    'border-b', 'bg-error'
+    'border-b',
+    'bg-error', 'bg-primary', 'bg-secondary', 'bg-success', 'bg-warning',
+    'badge-error', 'badge-primary', 'badge-secondary', 'badge-success', 'badge-warning',
+    'basis-1/2', 'basis-1/4',
   ]
 }
 
