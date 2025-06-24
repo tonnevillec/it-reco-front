@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="w-full flex flex-col md:flex-row gap-6">
                 <nav className={"text-black w-full md:w-1/3"}>
                     <h6 className="footer-title">Contact</h6>
-                    <p><FontAwesomeIcon icon={faEnvelope} className={"me-2"}></FontAwesomeIcon>contact-@it-reco.fr</p>
+                    <p><FontAwesomeIcon icon={faEnvelope} className={"me-2"}></FontAwesomeIcon>contact@it-reco.fr</p>
                 </nav>
 
                 <nav className={"text-black w-full md:w-1/3 flex flex-col"}>

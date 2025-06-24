@@ -1,17 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import imprimante01 from "../../assets/boutique/hp_E60155_01.jpg"
-import imprimante02 from "../../assets/boutique/hp_E60155_02.jpg"
-import imprimante03 from "../../assets/boutique/hp_E60155_03.jpg"
+import pcnat008_1 from "../../assets/boutique/pcnat008_1.png"
+import pcnat008_2 from "../../assets/boutique/pcnat008_2.png"
+import pcnat008_3 from "../../assets/boutique/pcnat008_3.png"
+import pcnat008_4 from "../../assets/boutique/pcnat008_4.png"
 
-import pnySSD25001 from "../../assets/boutique/pny_ssd_250_01.jpg"
-import pnySSD25002 from "../../assets/boutique/pny_ssd_250_02.jpg"
+import pcnat001_1 from "../../assets/boutique/pcnat001_1.png"
+import pcnat001_2 from "../../assets/boutique/pcnat001_2.png"
+import pcnat001_3 from "../../assets/boutique/pcnat001_3.png"
+import pcnat001_4 from "../../assets/boutique/pcnat001_4.png"
+import pcnat001_5 from "../../assets/boutique/pcnat001_5.png"
 
-import pnyM225001 from "../../assets/boutique/pny_m2_250_01.jpg"
-import pnyM225002 from "../../assets/boutique/pny_m2_250_02.jpg"
+import pcnat002_1 from "../../assets/boutique/pcnat002_1.png"
+import pcnat002_2 from "../../assets/boutique/pcnat002_2.png"
+import pcnat002_3 from "../../assets/boutique/pcnat002_3.png"
+import pcnat002_4 from "../../assets/boutique/pcnat002_4.png"
+import pcnat002_5 from "../../assets/boutique/pcnat002_5.png"
+import pcnat002_6 from "../../assets/boutique/pcnat002_6.png"
 
-import pnyAdaptBaie01 from "../../assets/boutique/pny_adaptateur_baie_01.jpg"
+import pcnat003_1 from "../../assets/boutique/pcnat003_1.png"
+import pcnat003_2 from "../../assets/boutique/pcnat003_2.png"
+import pcnat003_3 from "../../assets/boutique/pcnat003_3.png"
 
 import BoutiqueCard from "./BoutiqueCard.jsx";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faExternalLink} from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-scroll";
 
 const BoutiquePreview = () => {
     const [datas, setDatas] = useState([])
@@ -21,138 +34,200 @@ const BoutiquePreview = () => {
         setDatas([
             {
                 id: 1,
-                categorie: "Imprimante reconditionné",
-                shortDesc: "Imprimante N&B, Vitesse d'impression 52ppm, Connexion réseau",
+                categorie: "Unité centrale",
+                shortDesc: "Hp Compaq Elite 8300 SFF i7-3770 16Go DDR3 SANS DISQUE",
                 images: [
                     {
                         id: 1.1,
-                        title: "Imprimante HP LaserJet Managed E60155",
-                        lien: imprimante01
+                        title: "Hp Compaq Elite 8300 SFF i7-3770 16Go DDR3 SANS DISQUE",
+                        lien: pcnat008_1
                     },
                     {
                         id: 1.2,
-                        title: "Imprimante HP LaserJet Managed E60155",
-                        lien: imprimante02
+                        title: "Hp Compaq Elite 8300 SFF i7-3770 16Go DDR3 SANS DISQUE",
+                        lien: pcnat008_2
                     },
                     {
                         id: 1.3,
-                        title: "Imprimante HP LaserJet Managed E60155",
-                        lien: imprimante03
+                        title: "Hp Compaq Elite 8300 SFF i7-3770 16Go DDR3 SANS DISQUE",
+                        lien: pcnat008_3
+                    },
+                    {
+                        id: 1.4,
+                        title: "Hp Compaq Elite 8300 SFF i7-3770 16Go DDR3 SANS DISQUE",
+                        lien: pcnat008_4
                     },
                 ],
                 etiquettes: [
                     {
                         id: "e1.1",
-                        title: "Très bon",
-                        couleur: "success",
+                        title: "Ancien PC pro",
+                        couleur: "secondary",
                         textColor: "text-white"
-                    },
-                    {
-                        id: "e1.2",
-                        title: "Revalorisé",
-                        couleur: "primary",
-                        textColor: "text-white"
-                    },
+                    }
                 ],
-                etiqStars: 4,
-                title: "Imprimante HP LaserJet Managed E60155",
-                price: 150,
-                description: `* Imprimante N&B<br/>
-                        * Vitesse d'impression 52ppm<br/>
-                        * Écran graphique couleur (CGD) tactile de 10,92 cm (4,3 pouces)<br/>
-                        * Connectivité, standard: 1 port périphérique USB 2.0 haut débit; 2 ports USB 2.0 haut débit (hôte) ; 1 Gigabit Ethernet ; 1 compartiment d'intégration matérielle<br/>
+                etiqStars: 1,
+                title: "Disque SSD 250Go, PNY, [NEUF]",
+                price: 45,
+                description: `
+                    Processeur i7-3770 @3.40Ghz<br/>
+                    Mémoire 4*4Go DDR3<br/>
+                    Vendu SANS DISQUE<br/>
+                    <br/>
+                    Fonctionne très bien mais comme indiqué, il est vieux
                 `
             },
             {
                 id: 2,
-                categorie: "Pièce ordinateur",
-                shortDesc: "PNY CS900 SSD Interne SATA III, 2.5 Pouces, 250Go, Vitesse de Lecture jusqu'à 535MB/s",
+                categorie: "Unité centrale",
+                shortDesc: "Hp EliteDesk 800 G4 Workstation Edition - Rx 580 - 16Go DDR4 - Win11",
                 images: [
                     {
                         id: 2.1,
-                        title: "Disque SSD 250Go, PNY, [NEUF]",
-                        lien: pnySSD25001
+                        title: "Hp EliteDesk 800 G4 Workstation Edition - Rx 580 - 16Go DDR4 - Win11",
+                        lien: pcnat001_1
                     },
                     {
                         id: 2.2,
-                        title: "Disque SSD 250Go, PNY, [NEUF]",
-                        lien: pnySSD25002
+                        title: "Hp EliteDesk 800 G4 Workstation Edition - Rx 580 - 16Go DDR4 - Win11",
+                        lien: pcnat001_2
+                    },
+                    {
+                        id: 2.3,
+                        title: "Hp EliteDesk 800 G4 Workstation Edition - Rx 580 - 16Go DDR4 - Win11",
+                        lien: pcnat001_3
+                    },
+                    {
+                        id: 2.4,
+                        title: "Hp EliteDesk 800 G4 Workstation Edition - Rx 580 - 16Go DDR4 - Win11",
+                        lien: pcnat001_4
+                    },
+                    {
+                        id: 2.5,
+                        title: "Hp EliteDesk 800 G4 Workstation Edition - Rx 580 - 16Go DDR4 - Win11",
+                        lien: pcnat001_5
                     },
                 ],
                 etiquettes: [
                     {
                         id: "e2.1",
-                        title: "Produit neuf",
+                        title: "Ancien PC pro",
                         couleur: "secondary",
                         textColor: "text-white"
                     }
                 ],
                 etiqStars: 5,
-                title: "Disque SSD 250Go, PNY, [NEUF]",
-                price: 18,
-                description: "PNY CS900 SSD Interne SATA III, 2.5 Pouces, 250Go, Vitesse de Lecture jusqu'à 535MB/s"
+                title: "Hp EliteDesk 800 G4 Workstation Edition - Rx 580 - 16Go DDR4 - Win11",
+                price: 160,
+                description: `
+                Processeur i7-8700 vpro 3.2Ghz<br/>
+                Ram 16Go DDR4 2666Mhz (1*16)<br/>
+                SSD PNY 250Go NEUF<br/>
+                Carte graphique Radeon  Rx 580<br/>
+                Windows 11<br/>
+                <br/>
+                Traces/griffures sur le boîtier et facade légèrement adimée mais ne gene en rien son fonctionnement
+                `
             },
             {
                 id: 3,
                 categorie: "Pièce ordinateur",
-                shortDesc: "PNY CS1030 250GB M.2 NVMe PCIe Gen3 x4, 2500MB/s Vitesse de Lecture, 1100MB/s Vitesse d'écriture",
+                shortDesc: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
                 images: [
                     {
                         id: 3.1,
-                        title: "Disque M.2 250Go, PNY, [NEUF]",
-                        lien: pnyM225001
+                        title: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
+                        lien: pcnat002_1
                     },
                     {
                         id: 3.2,
-                        title: "Disque M.2 250Go, PNY, [NEUF]",
-                        lien: pnyM225002
+                        title: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
+                        lien: pcnat002_2
+                    },
+                    {
+                        id: 3.3,
+                        title: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
+                        lien: pcnat002_3
+                    },
+                    {
+                        id: 3.4,
+                        title: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
+                        lien: pcnat002_4
+                    },
+                    {
+                        id: 3.5,
+                        title: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
+                        lien: pcnat002_5
+                    },
+                    {
+                        id: 3.6,
+                        title: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
+                        lien: pcnat002_6
                     },
                 ],
                 etiquettes: [
                     {
                         id: "e3.1",
-                        title: "Produit neuf",
+                        title: "Ancien PC pro",
                         couleur: "secondary",
                         textColor: "text-white"
                     }
                 ],
                 etiqStars: 5,
-                title: "Disque M.2 250Go, PNY, [NEUF]",
-                price: 20,
-                description: "PNY CS1030 250GB M.2 NVMe PCIe Gen3 x4, 2500MB/s Vitesse de Lecture, 1100MB/s Vitesse d'écriture Internal Solid State Drive (SSD) Noir"
+                title: "Dell Optiplex 3050 mini format i5-8500T 16Go DDR4 M.2 250Go",
+                price: 120,
+                description: "Utilisation bureautique<br/>" +
+                    "Processeur i5-8500T 2.1Ghz<br/>" +
+                    "Ram 16Go DDR4 2666Mhz (2*8)<br/>" +
+                    "Disque M.2 250Go<br/>" +
+                    "Windows 11<br/>" +
+                    "PAS DE Wifi<br/>"
             },
             {
                 id: 4,
-                categorie: "Pièce ordinateur",
-                shortDesc: "Adaptateur baie 3.5 vers 2.5",
+                categorie: "Unité centrale",
+                shortDesc: "Dell Optiplex 3050 i5-7500 16Go DDR4 SSD 250Go",
                 images: [
                     {
                         id: 4.1,
-                        title: "Adaptateur baie 3.5 vers 2.5 pour SSD, PNY, [NEUF]",
-                        lien: pnyAdaptBaie01
+                        title: "Dell Optiplex 3050 i5-7500 16Go DDR4 SSD 250Go",
+                        lien: pcnat003_1
+                    },
+                    {
+                        id: 4.2,
+                        title: "Dell Optiplex 3050 i5-7500 16Go DDR4 SSD 250Go",
+                        lien: pcnat003_2
+                    },
+                    {
+                        id: 4.3,
+                        title: "Dell Optiplex 3050 i5-7500 16Go DDR4 SSD 250Go",
+                        lien: pcnat003_3
                     },
                 ],
                 etiquettes: [
                     {
                         id: "e4.1",
-                        title: "Produit neuf",
+                        title: "Ancien PC pro",
                         couleur: "secondary",
                         textColor: "text-white"
                     }
                 ],
-                etiqStars: 5,
-                title: "Adaptateur baie 3.5 vers 2.5 pour SSD, PNY, [NEUF]",
-                price: 4,
-                description: "Kit de transfert et adaptateur 3.5\" pour SSD <br/>" +
-                    "Contient :<br/>* 1 adaptateur 2.5, Vis de montage, <br/>" +
-                    "* Câble SATA III 6Gbp/s, Mini DVD Acronis True Image HD"
+                etiqStars: 4,
+                title: "Dell Optiplex 3050 i5-7500 16Go DDR4 SSD 250Go",
+                price: 100,
+                description: "Processeur i5-7500  @3.40Ghz" +
+                    "<br/>" +
+                    "Ram 16Go DDR4 2*8 2400Mhz<br/>" +
+                    "SSD PNY 250Go Neuf<br/>" +
+                    "Windows 11<br/>" +
+                    "Pas de wifi<br/>"
             },
         ])
 
         setLoading(false)
     }, []);
 
-    return (
+    return ( <>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-2 w-full">
             {/*<span className={"font-bold text-xl"}>Aucune offre pour le moment</span>*/}
 
@@ -163,6 +238,17 @@ const BoutiquePreview = () => {
                 />
             )}
         </div>
+
+        <div className={"flex w-full justify-around mt-4"}>
+            <div className={"text-center"}>
+            <a href={"https://www.leboncoin.fr/profile/3b5a040e-c5a9-4367-97d4-86b963ed252e/offers"}
+               target={"_blank"}
+               className={"flex justify-center border border-orange-500 text-orange-500 rounded-xl btn-xl w-full p-4 text-2xl"}>
+               Visiter la boutique sur Leboncoin <FontAwesomeIcon icon={faExternalLink} className={"ms-2"}></FontAwesomeIcon>
+            </a>
+            </div>
+        </div>
+    </>
     );
 };
 

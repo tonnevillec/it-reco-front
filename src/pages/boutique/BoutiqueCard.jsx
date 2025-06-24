@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Link} from "react-scroll";
 import Stars from "../../components/Stars.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHandPeace} from "@fortawesome/free-solid-svg-icons";
@@ -43,12 +42,12 @@ const BoutiqueCard = ({id, datas}) => {
                     alt={datas.images[0].alt}
                     data-id={`boutique-card-${datas.images[0].id}`}
                     onClick={showModal}
-                    className={"cursor-pointer"}
+                    className={"cursor-pointer max-h-[350px]"}
                 />
             </figure>
 
             <dialog id={`boutique-card-${datas.images[0].id}`} className={"modal px-4"}>
-                <div className={"modal-box p-4 m-4 min-w-full xl:min-w-[75%]"}>
+                <div className={"modal-box p-4 m-4 min-w-full xl:min-w-[75%] min-h-[90%]"}>
                     <div className="flex flex-wrap">
                         <div className={"lg:w-1/2 w-full flex flex-col"}>
                             <div className="w-full flex justify-center items-start">
@@ -65,6 +64,7 @@ const BoutiqueCard = ({id, datas}) => {
                                         <img
                                             src={i.lien}
                                             alt={id.title}
+                                            className={"h-36 w-36"}
                                             onClick={() => setCurrentImage(i)}
                                         />
                                     </figure>

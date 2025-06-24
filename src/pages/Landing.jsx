@@ -88,14 +88,14 @@ const Landing = () => {
 
                     <div className="w-full p-2 flex bg-gray-100 rounded-lg gap-4 mb-4">
                         <img className="w-24 sm:w-32 md:w-48 lg:w-52 rounded object-contain object-left-top" src={stepReconditionnement}
-                             alt="Reconditionnement et installation système"/>
+                             alt="Nettoyage, tests et installation système"/>
                         <div className={""}>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 3</h3>
-                            <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Reconditionnement et
+                            <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Nettoyage, tests et
                                 installation système</h2>
                             <p className="leading-relaxed text-base p-2">
                                 Avant la mise en vente <b>le matériel est entièrement nettoyé</b>, <b>les données sont
-                                intégralement effacée</b>. Je procède si nécessaire à un <b>upgrade du
+                                intégralement effacées</b>. Je procède si nécessaire à un <b>upgrade du
                                 matériel</b> (disque, mémoire) et j'<b>installe un système d'exploitation Linux</b> avec
                                 toutes les applications utiles à une utilisation basique (navigateur, suite bureautique,
                                 logiciel de lecture de vidéo et de musique).
@@ -143,7 +143,7 @@ const Landing = () => {
                                     vendu</h2>
                                 <p className="leading-relaxed text-base p-2">
                                     Si après 3 mois le matériel n'est pas vendu, vous pouvez choisir de le récupérer
-                                    avec facturation des prestations de reconditionnement ainsi que le coût des
+                                    avec facturation des prestations de nettoyage (étape 3) ainsi que le coût des
                                     éventuels upgrade matériel.
                                     <br/>
                                     Vous pouvez également choisir de le céder afin que je le laisse en vente en
@@ -177,7 +177,7 @@ const Landing = () => {
                                 que ces machines ne finissent
                                 en déchéterie</b> alors qu'elles sont encore largement utilisable!<br/>
                                 Je vais donc vous proposez cette solution alternative!<br/>
-                                En vous proposant de <b>reconditionner vos machines</b> et <b>en installant un système
+                                En vous proposant de <b>revaloriser vos machines</b> et <b>en installant un système
                                 Linux</b> afin de <b>revendre les matériels à prix très abordable</b>.<br/>
                                 Mon ambition est également de <b>démocratiser l'utilisation de Linux auprés du grand
                                 public</b> en produisant un <b>guide pour une utilisation basique</b> de ce
@@ -224,7 +224,7 @@ const Landing = () => {
                                 <div className="flex-grow">
                                     <h2 className="text-lg title-font font-medium mb-3">Ecologique</h2>
                                     <p className="leading-relaxed text-base">
-                                        En achetant du reconditionné on évite d'allourdir notre empreinte carbone dûe à
+                                        En achetant de l'occasion revalorisée on évite d'allourdir notre empreinte carbone dûe à
                                         la création d'un nouveau matériel. Saviez-vous que plusieurs centaines de kilos
                                         de matériaux, de litres d'eau et de matières toxiques sont nécessaires pour la
                                         production de seulement quelques kilos de matériels informatiques ?
