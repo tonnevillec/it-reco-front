@@ -21,6 +21,16 @@ import pcnat003_1 from "../../assets/boutique/pcnat003_1.png"
 import pcnat003_2 from "../../assets/boutique/pcnat003_2.png"
 import pcnat003_3 from "../../assets/boutique/pcnat003_3.png"
 
+import pcnat004_1 from "../../assets/boutique/pcnat004_1.jpg"
+import pcnat004_2 from "../../assets/boutique/pcnat004_2.jpg"
+import pcnat004_3 from "../../assets/boutique/pcnat004_3.jpg"
+import pcnat004_4 from "../../assets/boutique/pcnat004_4.jpg"
+
+import pcnat005_1 from "../../assets/boutique/pcnat005_1.jpg"
+import pcnat005_2 from "../../assets/boutique/pcnat005_2.jpg"
+import pcnat005_3 from "../../assets/boutique/pcnat005_3.jpg"
+import pcnat005_4 from "../../assets/boutique/pcnat005_4.jpg"
+
 import BoutiqueCard from "./BoutiqueCard.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faExternalLink} from "@fortawesome/free-solid-svg-icons";
@@ -221,6 +231,97 @@ const BoutiquePreview = () => {
                     "SSD PNY 250Go Neuf<br/>" +
                     "Windows 11<br/>" +
                     "Pas de wifi<br/>"
+            },
+            {
+                id: 5,
+                categorie: "Unité centrale",
+                shortDesc: "Hp Z230 Tower Wokrstation Xeon E3-1225 v3 3,2Ghz 32Go DDR3 Nvidia Quadro K600",
+                images: [
+                    {
+                        id: 5.1,
+                        title: "Hp Z230 Tower Wokrstation Xeon E3-1225 v3 3,2Ghz 32Go DDR3 Nvidia Quadro K600",
+                        lien: pcnat004_1
+                    },
+                    {
+                        id: 5.2,
+                        title: "Hp Z230 Tower Wokrstation Xeon E3-1225 v3 3,2Ghz 32Go DDR3 Nvidia Quadro K600",
+                        lien: pcnat004_2
+                    },
+                    {
+                        id: 5.3,
+                        title: "Hp Z230 Tower Wokrstation Xeon E3-1225 v3 3,2Ghz 32Go DDR3 Nvidia Quadro K600",
+                        lien: pcnat004_3
+                    },
+                    {
+                        id: 5.4,
+                        title: "Hp Z230 Tower Wokrstation Xeon E3-1225 v3 3,2Ghz 32Go DDR3 Nvidia Quadro K600",
+                        lien: pcnat004_4
+                    },
+                ],
+                etiquettes: [
+                    {
+                        id: "e5.1",
+                        title: "Ancien PC pro",
+                        couleur: "secondary",
+                        textColor: "text-white"
+                    }
+                ],
+                etiqStars: 4,
+                title: "Hp Z230 Tower Wokrstation Xeon E3-1225 v3 3,2Ghz 32Go DDR3 Nvidia Quadro K600",
+                price: 120,
+                description: "Processeur Xeon E3-1225 v3 @3.2Ghz" +
+                    "<br/>" +
+                    "Ram 32Go DDR3 4*8 1600Mhz<br/>" +
+                    "SSD PNY 250Go Neuf<br/>" +
+                    "Carte graphique Nvidi quadro K600<br/>" +
+                    "Ubuntu 24.04<br/>" +
+                    "Pas de wifi<br/>"
+            },
+            {
+                id: 6,
+                categorie: "Unité centrale",
+                shortDesc: "Dell Precision Tower 3620 i5-6500 8Go DDR4 SSD 250Go",
+                images: [
+                    {
+                        id: 6.1,
+                        title: "Dell Precision Tower 3620 i5-6500 8Go DDR4 SSD 250Go",
+                        lien: pcnat005_1
+                    },
+                    {
+                        id: 6.2,
+                        title: "Dell Precision Tower 3620 i5-6500 8Go DDR4 SSD 250Go",
+                        lien: pcnat005_2
+                    },
+                    {
+                        id: 6.3,
+                        title: "Dell Precision Tower 3620 i5-6500 8Go DDR4 SSD 250Go",
+                        lien: pcnat005_3
+                    },
+                    {
+                        id: 6.4,
+                        title: "Dell Precision Tower 3620 i5-6500 8Go DDR4 SSD 250Go",
+                        lien: pcnat005_4
+                    },
+                ],
+                etiquettes: [
+                    {
+                        id: "e6.1",
+                        title: "Ancien PC pro",
+                        couleur: "secondary",
+                        textColor: "text-white"
+                    }
+                ],
+                etiqStars: 4,
+                title: "Dell Precision Tower 3620 i5-6500 8Go DDR4 SSD 250Go",
+                price: 80,
+                description: "Processeur i5-6500 @3.2Ghz" +
+                    "<br/>" +
+                    "Ram 8Go DDR4 1*8 2133Mhz<br/>" +
+                    "SSD PNY 250Go Neuf<br/>" +
+                    "Ubuntu 24.04<br/>" +
+                    "Pas de wifi<br/>" +
+                    "<br/>" +
+                    "2 disponibles<br/>"
             },
         ])
 
