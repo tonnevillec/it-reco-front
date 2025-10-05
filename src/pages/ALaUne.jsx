@@ -29,7 +29,7 @@ const ALaUne = () => {
             <section className="body-font min-h-64" id={"section-actualite"}>
                 <div className="container py-6 px-4 mx-auto">
                     <div className="w-full mb-6">
-                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Actualité</h1>
+                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Actualités</h1>
                         <div className="h-1 w-20 bg-primary rounded"></div>
                     </div>
 
@@ -41,10 +41,12 @@ const ALaUne = () => {
                             </div>
 
                             <div className={"col-span-3 sm:col-span-2 p-4 border-2 shadow-xl"}>
-                                <img src={BACK_URL + '/uploads/images/' + d.affiche}
-                                     className={"object-cover"}
-                                     alt={d.title}
-                                     />
+                                <a href={BACK_URL + '/uploads/images/' + d.affiche} target={"_blank"}>
+                                    <img src={BACK_URL + '/uploads/images/' + d.affiche}
+                                         className={"object-cover"}
+                                         alt={d.title}
+                                         />
+                                </a>
                             </div>
                         </div>
                     )}
