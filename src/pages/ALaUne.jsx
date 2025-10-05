@@ -35,12 +35,12 @@ const ALaUne = () => {
 
                     {datas.map(d =>
                         <div className="w-full grid grid-cols-6 gap-4" key={d.id}>
-                            <div className={"col-span-3 sm:col-span-4"}>
+                            <div className={"col-span-6 sm:col-span-4"}>
                                 <h2 className={"h2 text-2xl font-bold title-font mb-2"}>{d.title}</h2>
                                 <div className={"w-full"} dangerouslySetInnerHTML={{__html: d.description}}/>
                             </div>
 
-                            <div className={"col-span-3 sm:col-span-2 p-4 border-2 shadow-xl"}>
+                            <div className={"col-span-6 sm:col-span-2 p-4 border-2 shadow-xl"}>
                                 <a href={BACK_URL + '/uploads/images/' + d.affiche} target={"_blank"}>
                                     <img src={BACK_URL + '/uploads/images/' + d.affiche}
                                          className={"object-cover"}
