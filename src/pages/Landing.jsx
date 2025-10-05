@@ -5,14 +5,34 @@ import stepReconditionnement from "../assets/step-reconditionnement.png"
 import stepVente from "../assets/step-vente.png"
 import stepVendu from "../assets/step-vendu.png"
 import stepRetry from "../assets/step-retry.png"
-import tibelec from "../assets/entreprises/tibelec.png"
 import {Link} from "react-scroll";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDollarSign, faLeaf, faRecycle} from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import BoutiquePreview from "./boutique/BoutiquePreview.jsx";
+import backApi from "../services/backApi.jsx";
+import Confiance from "./Confiance.jsx";
+import ALaUne from "./ALaUne.jsx";
+import Statistics from "./Statistics.jsx";
 
 const Landing = () => {
+    const [datas, setDatas] = useState({})
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        fetchDatas()
+            .finally(() => setLoading(false))
+    }, []);
+
+    const fetchDatas = async () => {
+        try {
+            const d = await backApi.apiFetch('/api/datas')
+            setDatas(d)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         <>
             <section className="w-full min-h-96 pt-36 lg:pt-24 pb-12" id={"section-header"}>
@@ -36,13 +56,13 @@ const Landing = () => {
 
             <section className={"w-full bg-white pt-3 pb-2"}>
                 <div className="container mx-auto mb-4 px-1">
-                    <div className="w-full rounded-sm lg:rounded-xl border-2 border-primary text-center font-bold p-4 text-primary">
-                        L'offre que je souhaites vous proposer est en cours de finalisation. Vous retrouverez toutes les informations sur le site dès que j'aurais terminé la rédaction.
-                        <br/>
-                        En attendant, n'hésitez pas à me <Link smooth spy to={"section-contact"} className={"cursor-pointer border-b-2 border-dotted font-bold"}>contacter</Link> si vous avez des questions.
-                    </div>
+                    {(!loading && datas.alertMessage !== null && datas.alertMessage.length > 0) &&
+                        <div className="w-full rounded-sm lg:rounded-xl border-2 border-primary text-center font-bold p-4 text-primary" dangerouslySetInnerHTML={{__html: datas.alertMessage}} />
+                    }
                 </div>
             </section>
+
+            <ALaUne />
 
             <section className="body-font" id={"section-fonction"}>
                 <div className="container mx-auto py-6 px-4">
@@ -259,13 +279,7 @@ const Landing = () => {
                         <div className="h-1 w-20 bg-primary rounded"></div>
                     </div>
 
-                    <div className="flex flex-wrap justify-around gap-4 lg:gap-6 w-full mb-4">
-                        <a href={"https://www.tibelec.fr"} target={"_blank"} className={"w-full md:basis-1/3 lg:basis-1/5 flex justify-center"}>
-                            <figure>
-                                <img src={tibelec} alt="Tibelec S.A." />
-                            </figure>
-                        </a>
-                    </div>
+                    <Confiance />
 
                     <div className="flex flex-col gap-4 text-center w-full">
                         <span className={"font-bold text-xl"}>Vous ?</span>
@@ -274,8 +288,6 @@ const Landing = () => {
                             <Link smooth spy to={"section-contact"} className={"btn btn-primary btn-sm mt-2"}>Contactez-moi</Link>
                         </div>
                     </div>
-
-                    {/*#TODO*/}
                 </div>
             </section>
 
@@ -286,7 +298,7 @@ const Landing = () => {
                         <div className="h-1 w-20 bg-primary rounded"></div>
                     </div>
 
-                    <BoutiquePreview />
+                    {!loading &&<BoutiquePreview leboncoin={datas.leboncoin} />}
                 </div>
             </section>
 
@@ -314,10 +326,12 @@ const Landing = () => {
 
                         <div className={"flex w-full justify-around"}>
                             <div className={"text-center"}>
-                                <span
-                                    className={"flex justify-center border border-primary rounded-xl btn-xl w-full p-4 text-2xl"}>
-                                    contact@it-reco.fr
-                                </span>
+                                {!loading &&
+                                    <span
+                                        className={"flex justify-center border border-primary rounded-xl btn-xl w-full p-4 text-2xl"}>
+                                        {datas.mail}
+                                    </span>
+                                }
                             </div>
                         </div>
                     </div>
@@ -331,29 +345,7 @@ const Landing = () => {
                         <div className="h-1 w-20 bg-primary rounded"></div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row w-full gap-4">
-                        <div className="p-6 w-full sm:w-1/4 w-1/2 text-center border border-primary rounded-xl hover:bg-slate-100">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">1</h2>
-                            <p className="leading-relaxed">Entreprises convaincues</p>
-                        </div>
-
-                        <div className="p-4 w-full sm:w-1/4 w-1/2 text-center border border-primary rounded-xl hover:bg-slate-100">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">1</h2>
-                            <p className="leading-relaxed">Matériels revalorisés</p>
-                        </div>
-
-                        <div className="p-4 w-full sm:w-1/4 w-1/2 text-center border border-primary rounded-xl hover:bg-slate-100">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">1</h2>
-                            <p className="leading-relaxed">Matériels vendus</p>
-                        </div>
-
-                        <div className="p-4 w-full sm:w-1/4 w-1/2 text-center border border-primary rounded-xl hover:bg-slate-100">
-                            <h2 className="title-font font-medium sm:text-4xl text-3xl text-gray-900">0</h2>
-                            <p className="leading-relaxed">Guides téléchargés *</p>
-                            <span className={"text-sm text-slate-500"}>* Bientot disponible</span>
-                        </div>
-
-                    </div>
+                    <Statistics />
                 </div>
             </section>
         </>

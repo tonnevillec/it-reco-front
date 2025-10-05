@@ -1,19 +1,33 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-scroll";
-import logo from "../assets/logo01.png"
+import {BACK_URL} from "../config.js";
+import {faLinkedin} from "@fortawesome/free-brands-svg-icons";
 
-const Footer = () => {
+const Footer = ({logo, contact, linkedin, siret}) => {
     return (
         <footer className="footer bg-emerald-50 p-2 md:p-10 min-h-[150px] flex flex-col md:flex-row">
             <aside className={"text-black w-full md:w-1/4"}>
-                <img src={logo} alt={"IT-RECO"} className={"max-w-36"} />
+                {(typeof logo !== 'undefined' && logo !== null && logo !== '') &&
+                    <img src={BACK_URL + '/uploads/images/' + logo} alt={"IT-RECO"} className={"max-w-36"} />
+                }
             </aside>
 
             <div className="w-full flex flex-col md:flex-row gap-6">
                 <nav className={"text-black w-full md:w-1/3"}>
                     <h6 className="footer-title">Contact</h6>
-                    <p><FontAwesomeIcon icon={faEnvelope} className={"me-2"}></FontAwesomeIcon>contact@it-reco.fr</p>
+                    {(typeof contact !== 'undefined' && contact !== null && contact !== '') &&
+                    <p>
+                        <FontAwesomeIcon icon={faEnvelope} className={"me-2"}></FontAwesomeIcon>
+                        <span>{contact}</span>
+                    </p>
+                    }
+                    {(typeof linkedin !== 'undefined' && linkedin !== null && linkedin !== '') &&
+                    <a href={linkedin} target={"_blank"} className={"hover:font-bold"}>
+                        <FontAwesomeIcon icon={faLinkedin} className={"me-2"}></FontAwesomeIcon>
+                            <span>Linkedin</span>
+                    </a>
+                    }
                 </nav>
 
                 <nav className={"text-black w-full md:w-1/3 flex flex-col"}>
@@ -28,10 +42,11 @@ const Footer = () => {
                 <nav className={"text-black w-full md:w-1/3"}>
                     <h6 className="footer-title">A propos</h6>
                     <div>
-                        L'offre que je souhaites vous proposer est en cours de finalisation. Vous retrouverez toutes les informations sur le site dès que j'aurais terminé la rédaction.
-                        <br/>
-                        En attendant, n'hésitez pas à me contacter si vous avez des questions.
+                        IT-RECO est une auto-entreprise
                     </div>
+                    {(typeof siret !== 'undefined' && siret !== null && siret !== '') &&
+                        <p className={"my-2"}>N° de SIRET : {siret}</p>
+                    }
                 </nav>
             </div>
         </footer>

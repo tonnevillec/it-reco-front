@@ -1,14 +1,17 @@
 import React from 'react';
 import {Link} from "react-scroll";
-import logo from '../assets/logo01.png'
+import {BACK_URL} from "../config.js";
 
-const Navbar = () => {
+const Navbar = ({logo}) => {
+
     return (<>
             <header className="text-black z-100 fixed top-0 left-0 w-full navbar bg-base-100 shadow-sm p-1">
                 <div className="container mx-auto flex flex-wrap p-5 flex-col lg:flex-row items-center">
                     <Link smooth spy to={"section-header"}
                           className="cursor-pointer flex title-font font-medium items-center text-gray-900 md:mb-0">
-                        <img src={logo} className={"h-8 lg:h-10"} alt={"Logo de serre-vis informatique"}/>
+                        {(typeof logo !== 'undefined' && logo !== null && logo !== '') &&
+                            <img src={BACK_URL + '/uploads/images/' + logo} className={"h-8 lg:h-10"} alt={"Logo de IT-RECO"}/>
+                        }
                     </Link>
 
                     <nav className="lg:ml-auto flex flex-wrap items-center text-base justify-center">
