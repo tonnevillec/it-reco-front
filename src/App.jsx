@@ -6,10 +6,12 @@ import {ToastContainer} from "react-toastify";
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter
+        future={{
+            v7_startTransition: true,
+        }}>
         <Routes>
-            <Route path={"/"} element={<Home />}>
-            </Route>
+            <Route path={"/"} element={<Home />}></Route>
         </Routes>
 
         <ToastContainer />

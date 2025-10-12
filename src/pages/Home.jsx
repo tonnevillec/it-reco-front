@@ -34,7 +34,7 @@ const Home = () => {
                 }
 
                 <main id={"page-content"}
-                      className={"flex max-w-full flex-auto flex-col mt-20"}
+                      className={"flex max-w-full flex-auto flex-col mt-32"}
                 >
                     <div className="w-full min-h-screen">
                         {location.pathname === "/" ? <Landing/> : <Outlet/>}
