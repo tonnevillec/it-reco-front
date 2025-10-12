@@ -39,7 +39,7 @@ const BoutiqueCard = ({id, datas}) => {
                                 </figure>
                             </div>
 
-                            <div className={"w-full flex flex-row gap-4 p-4"}>
+                            <div className={"w-full grid grid-cols-4 gap-4 p-4"}>
                                 {datas.photos.map(i =>
                                     <figure className="cursor-pointer object-cover h-36 w-36" key={i.id}>
                                         <img
