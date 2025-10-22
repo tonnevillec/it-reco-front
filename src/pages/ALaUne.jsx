@@ -26,7 +26,7 @@ const ALaUne = () => {
     return (
         <>
             {(!loading && datas.length !== 0) &&
-            <section className="body-font min-h-64" id={"section-actualite"}>
+            <section className="body-font bg-emerald-50 min-h-64" id={"section-actualite"}>
                 <div className="container py-6 px-4 mx-auto">
                     <div className="w-full mb-6">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Actualités</h1>
@@ -40,7 +40,7 @@ const ALaUne = () => {
                                 <div className={"w-full"} dangerouslySetInnerHTML={{__html: d.description}}/>
                             </div>
 
-                            <div className={"col-span-6 sm:col-span-2 p-4 border-2 shadow-xl"}>
+                            <div className={"col-span-6 sm:col-span-2 p-4 border-2 shadow-xl bg-white"}>
                                 <a href={BACK_URL + '/uploads/images/' + d.affiche} target={"_blank"}>
                                     <img src={BACK_URL + '/uploads/images/' + d.affiche}
                                          className={"object-cover"}

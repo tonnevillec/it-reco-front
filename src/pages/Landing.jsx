@@ -9,11 +9,11 @@ import {Link} from "react-scroll";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDollarSign, faLeaf, faRecycle} from "@fortawesome/free-solid-svg-icons";
 import React, {useEffect, useState} from "react";
-import BoutiquePreview from "./boutique/BoutiquePreview.jsx";
 import backApi from "../services/backApi.jsx";
 import Confiance from "./Confiance.jsx";
 import ALaUne from "./ALaUne.jsx";
 import Statistics from "./Statistics.jsx";
+import Boutique from "./boutique/Boutique.jsx";
 
 const Landing = () => {
     const [datas, setDatas] = useState({})
@@ -291,16 +291,7 @@ const Landing = () => {
                 </div>
             </section>
 
-            <section className="body-font min-h-64" id={"section-boutique"}>
-                <div className="container px-4 py-6 mx-auto">
-                    <div className="w-full mb-6">
-                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Boutique</h1>
-                        <div className="h-1 w-20 bg-primary rounded"></div>
-                    </div>
-
-                    {!loading &&<BoutiquePreview leboncoin={datas.leboncoin} />}
-                </div>
-            </section>
+            {!loading && <Boutique leboncoin={datas.leboncoin} />}
 
             <section className="body-font min-h-64 bg-emerald-50" id={"section-contact"}>
                 <div className="container px-4 py-6 mx-auto">
