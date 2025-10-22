@@ -35,7 +35,7 @@ const Landing = () => {
 
     return (
         <>
-            <section className="w-full min-h-96 pt-36 lg:pt-24 pb-12" id={"section-header"}>
+            <section className="w-full min-h-96 pt-28 lg:pt-24 pb-12" id={"section-header"}>
                 <div className="flex container mx-auto flex-row">
                     <div className={"p-2 lg:pe-6"}>
                         <h1 className="text-3xl w-full text-center lg:text-4xl lg:text-left font-bold">Revalorisez le parc informatique de votre entreprise</h1>
@@ -66,7 +66,7 @@ const Landing = () => {
 
             <section className="body-font" id={"section-fonction"}>
                 <div className="container mx-auto py-6 px-4">
-                    <div className="flex flex-wrap w-full mb-16">
+                    <div className="flex flex-wrap w-full mb-12">
                         <div className="w-full mb-6">
                             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Comment ça fonctionne
                                 ?</h1>
@@ -80,12 +80,13 @@ const Landing = () => {
                         </p>
                     </div>
 
-                    <div className="w-full p-1 md:p-2 flex bg-gray-100 rounded-lg gap-4 mb-4">
-                        <img className="w-24 sm:w-32 md:w-48 lg:w-52 rounded object-contain object-left-top" src={stepContact}
-                             alt="Prise de contact"/>
-                        <div className={""}>
+                    <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
+                        <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
+                            <img src={stepContact} alt="Prise de contact"/>
+                        </div>
+                        <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 1</h3>
-                            <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Prise de contact</h2>
+                            <h2 className="text-lg text-gray-900 font-medium title-font mb-1 lg:mb-4">Prise de contact</h2>
                             <p className="leading-relaxed text-base p-2">
                                 Contactez-moi pour planifier un rendez-vous afin que je puisse venir faire une
                                 estimation de vos matériels.<br/>
@@ -93,10 +94,11 @@ const Landing = () => {
                         </div>
                     </div>
 
-                    <div className="w-full p-2 flex bg-gray-100 rounded-lg gap-4 mb-4">
-                        <img className="w-24 sm:w-32 md:w-48 lg:w-52 rounded object-contain object-left-top" src={stepEstimation}
-                             alt="Estimation"/>
-                        <div className={""}>
+                    <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
+                        <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
+                            <img src={stepEstimation} alt="Estimation"/>
+                        </div>
+                        <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 2</h3>
                             <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Estimation</h2>
                             <p className="leading-relaxed text-base p-2">
@@ -106,10 +108,11 @@ const Landing = () => {
                         </div>
                     </div>
 
-                    <div className="w-full p-2 flex bg-gray-100 rounded-lg gap-4 mb-4">
-                        <img className="w-24 sm:w-32 md:w-48 lg:w-52 rounded object-contain object-left-top" src={stepReconditionnement}
-                             alt="Nettoyage, tests et installation système"/>
-                        <div className={""}>
+                    <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
+                        <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
+                            <img src={stepReconditionnement} alt="Nettoyage, tests et installation système"/>
+                        </div>
+                        <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 3</h3>
                             <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Nettoyage, tests et
                                 installation système</h2>
@@ -123,10 +126,11 @@ const Landing = () => {
                         </div>
                     </div>
 
-                    <div className="w-full p-2 flex bg-gray-100 rounded-lg gap-4 mb-4">
-                        <img className="w-24 sm:w-32 md:w-48 lg:w-52 rounded object-contain object-left-top" src={stepVente}
-                             alt="Mise en vente"/>
-                        <div className={""}>
+                    <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
+                        <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
+                            <img src={stepVente} alt="Mise en vente"/>
+                        </div>
+                        <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 4</h3>
                             <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Mise en vente</h2>
                             <p className="leading-relaxed text-base p-2">
@@ -137,10 +141,11 @@ const Landing = () => {
                     </div>
 
                     <div className="flex w-full flex-col xl:flex-row">
-                        <div className="w-full p-2 flex bg-gray-100 rounded-lg gap-4">
-                            <img className="w-24 sm:w-32 md:w-48 lg:w-52 rounded object-contain object-left-top" src={stepVendu}
-                                 alt="Matériel vendu"/>
-                            <div className={""}>
+                        <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4">
+                            <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
+                                <img src={stepVendu} alt="Matériel vendu"/>
+                            </div>
+                            <div>
                                 <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape
                                     5</h3>
                                 <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Matériel vendu</h2>
@@ -153,10 +158,11 @@ const Landing = () => {
 
                         <div className="divider xl:divider-horizontal">OU</div>
 
-                        <div className="w-full p-2 flex bg-gray-100 rounded-lg gap-4">
-                            <img className="w-24 sm:w-32 md:w-48 lg:w-52 rounded object-contain object-left-top" src={stepRetry}
-                                 alt="Matériel non vendu"/>
-                            <div className={""}>
+                        <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4">
+                            <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
+                                <img src={stepRetry} alt="Matériel nonbvendu"/>
+                            </div>
+                            <div>
                                 <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape
                                     5</h3>
                                 <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Matériel non

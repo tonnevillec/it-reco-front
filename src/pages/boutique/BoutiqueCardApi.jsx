@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {BACK_URL} from "../../config.js";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faXmark} from "@fortawesome/free-solid-svg-icons";
 
 const BoutiqueCard = ({id, datas}) => {
     const [currentImage, setCurrentImage] = useState(datas.photos[0])
@@ -7,6 +9,13 @@ const BoutiqueCard = ({id, datas}) => {
         e.preventDefault()
         const dialog = document.getElementById(e.currentTarget.getAttribute('data-id'));
         dialog.showModal()
+    }
+
+    const closeModal = (e) => {
+        e.preventDefault()
+
+        const dialog =  document.getElementById(e.currentTarget.getAttribute('data-id'));
+        dialog.close();
     }
 
     return (
@@ -28,7 +37,16 @@ const BoutiqueCard = ({id, datas}) => {
             </figure>
 
             <dialog id={`boutique-card-${datas.photos[0].id}`} className={"modal px-4"}>
-                <div className={"modal-box p-4 m-4 min-w-full xl:min-w-[75%] min-h-[90%]"}>
+                <div className={"modal-box p-1 m-1 lg:p-4 lg:m-4 min-w-full xl:min-w-[75%] min-h-[90%]"}>
+                    <div className={"w-full flex justify-end bg-white z-100 lg:hidden"}>
+                        <button type={"button"}
+                                className={"btn btn-xs btn-secondary me-4"}
+                                data-id={`boutique-card-${datas.photos[0].id}`}
+                                onClick={closeModal}>
+                            <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+                        </button>
+                    </div>
+
                     <div className="flex flex-wrap">
                         <div className={"lg:w-1/2 w-full flex flex-col"}>
                             <div className="w-full flex justify-center items-start">
@@ -39,7 +57,7 @@ const BoutiqueCard = ({id, datas}) => {
                                 </figure>
                             </div>
 
-                            <div className={"w-full grid grid-cols-4 gap-4 p-4"}>
+                            <div className={"w-full grid grid-cols-2 gap-2 p-1  lg:grid-cols-4 lg:gap-4 lg:p-4"}>
                                 {datas.photos.map(i =>
                                     <figure className="cursor-pointer object-cover h-36 w-36" key={i.id}>
                                         <img

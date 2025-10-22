@@ -1,6 +1,6 @@
 import BoutiquePreview from "./BoutiquePreview.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGears} from "@fortawesome/free-solid-svg-icons";
+import {faGears, faXmark} from "@fortawesome/free-solid-svg-icons";
 import legals from "../../assets/legals.png"
 
 const Boutique = ({leboncoin}) => {
@@ -10,6 +10,13 @@ const Boutique = ({leboncoin}) => {
 
         const dialog = document.getElementById('mentions-legales');
         dialog.showModal();
+    }
+
+    const closeModal = (e) => {
+        e.preventDefault()
+
+        const dialog = document.getElementById('mentions-legales');
+        dialog.close();
     }
 
     return (
@@ -28,8 +35,16 @@ const Boutique = ({leboncoin}) => {
                     <dialog id={"mentions-legales"} className={"modal"}>
                         <div className={"modal-box p-0 m-4 min-w-[80%] min-h-[80%]"}>
                             <div
-                                className={"w-full p-2 bg-white border-solid border-t-0 border-l-0 border-r-0 border-2 border-slate-200 sticky top-0 z-100 font-bold"}>
-                                <FontAwesomeIcon icon={faGears} className={"me-2"}></FontAwesomeIcon>Les différences entre "Occasion" et "Reconditionné"
+                                className={"w-full flex justify-between p-2 bg-white border-solid border-t-0 border-l-0 border-r-0 border-2 border-slate-200 sticky top-0 z-100 font-bold"}>
+                                <h2>
+                                    <FontAwesomeIcon icon={faGears} className={"me-2"}></FontAwesomeIcon>Les différences entre "Occasion" et "Reconditionné"
+                                </h2>
+
+                                <button type={"button"}
+                                        className={"lg:hidden btn btn-xs btn-secondary me-4"}
+                                        onClick={closeModal}>
+                                    <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
+                                </button>
                             </div>
 
                             <div className={"py-4 px-8 grid xl:grid-cols-3 xl:gap-4"}>
