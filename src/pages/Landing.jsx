@@ -5,17 +5,24 @@ import stepReconditionnement from "../assets/step-reconditionnement.png"
 import stepVente from "../assets/step-vente.png"
 import stepVendu from "../assets/step-vendu.png"
 import stepRetry from "../assets/step-retry.png"
-import {Link} from "react-scroll";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDollarSign, faLeaf, faRecycle} from "@fortawesome/free-solid-svg-icons";
 import React, {useEffect, useState} from "react";
 import backApi from "../services/backApi.jsx";
 import Confiance from "./Confiance.jsx";
 import ALaUne from "./ALaUne.jsx";
-import Statistics from "./Statistics.jsx";
 import Boutique from "./boutique/Boutique.jsx";
+import {useLocation, useNavigate} from "react-router-dom";
+import {useScrollToAnchor} from "../hook/useScrollToAnchor.jsx";
 
 const Landing = () => {
+    const navigate = useNavigate()
+    const location = useLocation();
+    const params = new URLSearchParams(location.search);
+    const anchor = params.get("scrollTo");
+
+    useScrollToAnchor(anchor);
+
     const [datas, setDatas] = useState({})
     const [loading, setLoading] = useState(true)
 
@@ -33,6 +40,16 @@ const Landing = () => {
         }
     }
 
+    const handleAnchorClick = (anchor) => {
+        if (window.location.pathname !== "/") {
+            navigate(`/?scrollTo=${anchor}`);
+        } else {
+            // Si on est déjà sur la page d'accueil, on scrolle directement
+            const element = document.getElementById(anchor);
+            if (element) element.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+
     return (
         <>
             <section className="w-full min-h-96 pt-28 lg:pt-24 pb-12" id={"section-header"}>
@@ -46,7 +63,7 @@ const Landing = () => {
 
                         <div className="pt-5 w-full text-center md:text-left">
                             Vous êtes une entreprise située autour de la métropole Lilloise ?<br/>
-                            <Link smooth spy to={"section-contact"} className={"btn btn-primary btn-sm mt-2 lg:mt-4"}>Contactez-moi</Link>
+                            <button onClick={() => handleAnchorClick('section-contact')} className={"btn btn-primary btn-sm mt-2 lg:mt-4"}>Contact</button>
                         </div>
                     </div>
 
@@ -291,7 +308,7 @@ const Landing = () => {
                         <span className={"font-bold text-xl"}>Vous ?</span>
 
                         <div className={"w-full"}>
-                            <Link smooth spy to={"section-contact"} className={"btn btn-primary btn-sm mt-2"}>Contactez-moi</Link>
+                            <button onClick={() => handleAnchorClick('section-contact')} className={"btn btn-primary btn-sm mt-2 lg:mt-4"}>Contact</button>
                         </div>
                     </div>
                 </div>
@@ -299,7 +316,7 @@ const Landing = () => {
 
             {!loading && <Boutique leboncoin={datas.leboncoin} />}
 
-            <section className="body-font min-h-64 bg-emerald-50" id={"section-contact"}>
+            <section className="body-font min-h-64" id={"section-contact"}>
                 <div className="container px-4 py-6 mx-auto">
                     <div className="w-full mb-6">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Contact</h1>
@@ -335,16 +352,16 @@ const Landing = () => {
                 </div>
             </section>
 
-            <section className="body-font min-h-64" id={"section-stats"}>
-                <div className="container py-6 px-4 mx-auto">
-                    <div className="w-full mb-6">
-                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Quelques statistiques</h1>
-                        <div className="h-1 w-20 bg-primary rounded"></div>
-                    </div>
+            {/*<section className="body-font min-h-64" id={"section-stats"}>*/}
+            {/*    <div className="container py-6 px-4 mx-auto">*/}
+                    {/*<div className="w-full mb-6">*/}
+                    {/*    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Quelques statistiques</h1>*/}
+                    {/*    <div className="h-1 w-20 bg-primary rounded"></div>*/}
+                    {/*</div>*/}
 
-                    <Statistics />
-                </div>
-            </section>
+                    {/*<Statistics />*/}
+                {/*</div>*/}
+            {/*</section>*/}
         </>
     );
 };
