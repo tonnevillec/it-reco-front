@@ -7,14 +7,14 @@ const DisclaimerBoutique = () => {
     const showModal = (e) => {
         e.preventDefault()
 
-        const dialog = document.getElementById('mentions-legales');
+        const dialog = document.getElementById('disclaimer-boutique');
         dialog.showModal();
     }
 
     const closeModal = (e) => {
         e.preventDefault()
 
-        const dialog = document.getElementById('mentions-legales');
+        const dialog = document.getElementById('disclaimer-boutique');
         dialog.close();
     }
 
@@ -28,7 +28,7 @@ const DisclaimerBoutique = () => {
                 </span>
             </p>
 
-            <dialog id={"mentions-legales"} className={"modal"}>
+            <dialog id={"disclaimer-boutique"} className={"modal"}>
                 <div className={"modal-box p-0 m-4 min-w-[80%] min-h-[80%]"}>
                     <div
                         className={"w-full flex justify-between p-2 bg-white border-solid border-t-0 border-l-0 border-r-0 border-2 border-slate-200 sticky top-0 z-100 font-bold"}>
