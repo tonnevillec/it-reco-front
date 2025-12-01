@@ -5,15 +5,17 @@ import stepReconditionnement from "../assets/step-reconditionnement.png"
 import stepVente from "../assets/step-vente.png"
 import stepVendu from "../assets/step-vendu.png"
 import stepRetry from "../assets/step-retry.png"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDollarSign, faLeaf, faRecycle} from "@fortawesome/free-solid-svg-icons";
-import React, {useEffect, useState} from "react";
+import cyril from "../assets/it-reco-cyril.jpg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDollarSign, faLeaf, faRecycle } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useState } from "react";
 import backApi from "../services/backApi.jsx";
 import Confiance from "./Confiance.jsx";
 import ALaUne from "./ALaUne.jsx";
 import Boutique from "./boutique/Boutique.jsx";
-import {useLocation, useNavigate} from "react-router-dom";
-import {useScrollToAnchor} from "../hook/useScrollToAnchor.jsx";
+import Partenaire from "./Partenaire.jsx";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useScrollToAnchor } from "../hook/useScrollToAnchor.jsx";
 
 const Landing = () => {
     const navigate = useNavigate()
@@ -55,26 +57,27 @@ const Landing = () => {
             <section className="w-full min-h-96 pt-28 lg:pt-24 pb-12" id={"section-header"}>
                 <div className="flex container mx-auto flex-row">
                     <div className={"p-2 lg:pe-6"}>
-                        <h1 className="text-3xl w-full text-center lg:text-4xl lg:text-left font-bold">Revalorisez le parc informatique de votre entreprise</h1>
+                        <h1 className="text-3xl w-full text-center lg:text-4xl lg:text-left font-bold">Donnez une seconde vie performante à l'informatique Pro</h1>
 
                         <div className="pt-5 w-full text-center md:text-left">
-                            Rentabilisez la seconde vie de votre matériel informatique obsolète
+                            L'expert du réemploi à Lesquin et dans la Métropole Lilloise. Matériel professionnel récupéré, rénové et garanti.
                         </div>
 
-                        <div className="pt-5 w-full text-center md:text-left">
-                            Vous êtes une entreprise située autour de la métropole Lilloise ?<br/>
-                            <button onClick={() => handleAnchorClick('section-contact')} className={"btn btn-primary btn-sm mt-2 lg:mt-4"}>Contact</button>
+                        <div className="pt-5 w-full flex flex-col lg:flex-row lg:justify-around gap-2">
+                            <Link to={"/store"} className={"btn btn-primary btn-xl mt-2 lg:mt-4"}>VOIR LA BOUTIQUE</Link>
+
+                            <button onClick={() => handleAnchorClick('section-contact')} className={"btn btn-primary btn-xl mt-2 lg:mt-4"}>VALORISER MON PARC</button>
                         </div>
                     </div>
 
-                    <img src={hello} className="hidden lg:block max-w-lg" alt="Bienvenue sur le site de serre-vis informatique!"/>
+                    <img src={hello} className="hidden lg:block max-w-lg" alt="Bienvenue sur le site de serre-vis informatique!" />
                 </div>
             </section>
 
             <section className={"w-full bg-white pt-3 pb-2"}>
                 <div className="container mx-auto mb-4 px-1">
                     {(!loading && datas.alertMessage !== null && datas.alertMessage.length > 0) &&
-                        <div className="w-full rounded-sm lg:rounded-xl border-2 border-primary text-center font-bold p-4 text-primary" dangerouslySetInnerHTML={{__html: datas.alertMessage}} />
+                        <div className="w-full rounded-sm lg:rounded-xl border-2 border-primary text-center font-bold p-4 text-primary" dangerouslySetInnerHTML={{ __html: datas.alertMessage }} />
                     }
                 </div>
             </section>
@@ -92,42 +95,42 @@ const Landing = () => {
                         <p className="w-full leading-relaxed text-gray-500">
                             Vous avez du matériel informatique qui prend la poussière et qui n'est plus utilisé ou vos
                             ordinateurs ne peuvent pas recevoir la mise à jour vers Windows 11 ?
-                            <br/>
+                            <br />
                             Voici comment se déroule le processus de revalorisation
                         </p>
                     </div>
 
                     <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
                         <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
-                            <img src={stepContact} alt="Prise de contact"/>
+                            <img src={stepContact} alt="Prise de contact" />
                         </div>
                         <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 1</h3>
                             <h2 className="text-lg text-gray-900 font-medium title-font mb-1 lg:mb-4">Prise de contact</h2>
                             <p className="leading-relaxed text-base p-2">
                                 Contactez-moi pour planifier un rendez-vous afin que je puisse venir faire une
-                                estimation de vos matériels.<br/>
+                                estimation de vos matériels.<br />
                             </p>
                         </div>
                     </div>
 
                     <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
                         <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
-                            <img src={stepEstimation} alt="Estimation"/>
+                            <img src={stepEstimation} alt="Estimation" />
                         </div>
                         <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 2</h3>
                             <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Estimation</h2>
                             <p className="leading-relaxed text-base p-2">
                                 Après une inspection visuelle du matériel je vous propose une <b>estimation de
-                                vente</b> et donc un premier chiffrage de ce que vous pourriez gagner.
+                                    vente</b> et donc un premier chiffrage de ce que vous pourriez gagner.<br />
                             </p>
                         </div>
                     </div>
 
                     <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
                         <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
-                            <img src={stepReconditionnement} alt="Nettoyage, tests et installation système"/>
+                            <img src={stepReconditionnement} alt="Nettoyage, tests et installation système" />
                         </div>
                         <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 3</h3>
@@ -135,8 +138,9 @@ const Landing = () => {
                                 installation système</h2>
                             <p className="leading-relaxed text-base p-2">
                                 Avant la mise en vente <b>le matériel est entièrement nettoyé</b>, <b>les données sont
-                                intégralement effacées</b>. Je procède si nécessaire à un <b>upgrade du
-                                matériel</b> (disque, mémoire) et j'<b>installe un système d'exploitation Linux</b> avec
+                                    intégralement effacées</b>, effacement Certifié (Norme NIST 800-88) avec remise de Certificat de Destruction.<br />
+                                Je procède si nécessaire à un <b>upgrade du
+                                    matériel</b> (disque, mémoire) et si le matériel n'est pas compatible Windows 11, j'<b>installe un système d'exploitation Linux</b> avec
                                 toutes les applications utiles à une utilisation basique (navigateur, suite bureautique,
                                 logiciel de lecture de vidéo et de musique).
                             </p>
@@ -145,14 +149,13 @@ const Landing = () => {
 
                     <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4 mb-4">
                         <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
-                            <img src={stepVente} alt="Mise en vente"/>
+                            <img src={stepVente} alt="Mise en vente" />
                         </div>
                         <div>
                             <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape 4</h3>
                             <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Mise en vente</h2>
                             <p className="leading-relaxed text-base p-2">
-                                Le matériel est mis en vente sur la boutique en ligne ainsi que sur <a href={""}
-                                                                                                          className={""}>Leboncoin</a>.
+                                Le matériel est mis en vente chez mon partenaire <a href={"https://serrevis-informatique.fr"} target={"_blank"} className={"hover:font-bold"}> Serre-Vis informatique</a> à Lesquin ainsi que sur <a href={!loading ? datas.leboncoin : ''} className={"hover:text-orange-400"}>Leboncoin</a>.
                             </p>
                         </div>
                     </div>
@@ -160,15 +163,14 @@ const Landing = () => {
                     <div className="flex w-full flex-col xl:flex-row">
                         <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4">
                             <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
-                                <img src={stepVendu} alt="Matériel vendu"/>
+                                <img src={stepVendu} alt="Gain & Impact RSE" />
                             </div>
                             <div>
-                                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape
-                                    5</h3>
-                                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Matériel vendu</h2>
+                                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Scénario A : Succès</h3>
+                                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Gain & Impact RSE</h2>
                                 <p className="leading-relaxed text-base p-2">
-                                    Lorsque le matériel est vendu vous recevez un mail avec le détail du calcul de votre
-                                    gain selon nos conditions contractuelles.
+                                    Vous recevez votre paiement par virement accompagné de votre <b>Certificat de Réemploi</b>.
+                                    Ce document officiel justifie la sortie de votre patrimoine comptable et <b>valorise votre démarche RSE</b> (Responsabilité Sociétale des Entreprises) en attestant que votre matériel a été revalorisé localement plutôt que détruit.
                                 </p>
                             </div>
                         </div>
@@ -177,20 +179,16 @@ const Landing = () => {
 
                         <div className="w-full p-1 md:p-2 flex flex-col lg:flex-row bg-gray-100 rounded-lg gap-4">
                             <div className={"w-full lg:max-w-52 lg:min-w-52 rounded object-contain object-center lg:object-left-top"}>
-                                <img src={stepRetry} alt="Matériel nonbvendu"/>
+                                <img src={stepRetry} alt="Pas de vente ? Zéro frais !" />
                             </div>
                             <div>
-                                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Etape
-                                    5</h3>
-                                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Matériel non
-                                    vendu</h2>
+                                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">Scénario B: Sécurité</h3>
+                                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Pas de vente ? Zéro frais !</h2>
                                 <p className="leading-relaxed text-base p-2">
-                                    Si après 3 mois le matériel n'est pas vendu, vous pouvez choisir de le récupérer
-                                    avec facturation des prestations de nettoyage (étape 3) ainsi que le coût des
-                                    éventuels upgrade matériel.
-                                    <br/>
-                                    Vous pouvez également choisir de le céder afin que je le laisse en vente en
-                                    diminuant le prix et donc votre rétribution.
+                                    Si le matériel ne trouve pas preneur sous <b>6 mois</b>, vous n'avez rien à payer.<br />
+                                    Le matériel est simplement cédé à IT-RECO : cela couvre intégralement nos frais engagés (pièces neuves installées et main d'œuvre).<br />
+                                    <b>Résultat : Aucune facture à régler de votre côté</b>.<br />
+                                    Vous recevez une attestation de clôture de mandat et nous nous chargeons de la fin de vie du produit (don associatif ou vente pour pièces)
                                 </p>
                             </div>
                         </div>
@@ -206,31 +204,33 @@ const Landing = () => {
                             <div className="h-1 w-20 bg-primary rounded"></div>
                         </div>
 
-                        <div className="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                 className="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
-                                <path
-                                    d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
-                            </svg>
-                            <p className="leading-relaxed text-lg">
-                                En tant que professionnel dans l'informatique depuis 25 ans je ne peux pas accepter
-                                que <b>Microsoft décide de rendre obsolète
-                                des millions d'ordinateurs</b> en les empéchants de se mettre à jour sur la dernière
-                                version de Windows en Octobre 2025 sans proposer une solution alternative et ainsi <b>éviter
-                                que ces machines ne finissent
-                                en déchéterie</b> alors qu'elles sont encore largement utilisable!<br/>
-                                Je vais donc vous proposez cette solution alternative!<br/>
-                                En vous proposant de <b>revaloriser vos machines</b> et <b>en installant un système
-                                Linux</b> afin de <b>revendre les matériels à prix très abordable</b>.<br/>
-                                Mon ambition est également de <b>démocratiser l'utilisation de Linux auprés du grand
-                                public</b> en produisant un <b>guide pour une utilisation basique</b> de ce
-                                système qui peut faire peur mais qui pourtant n'a absolument pas à rougir face à
-                                Windows.
-                            </p>
-                            <span className="inline-block h-1 w-10 rounded bg-primary mt-8 mb-6"></span>
-                            <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">Cyril
-                                Tonneville</h2>
-                            <p className="text-gray-500">Créateur d'IT-RECO</p>
+                        <div className="flex flex-col lg:flex-row gap-6 w-full">
+                            <div className="w-full lg:w-1/2 text-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                    className="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
+                                    <path
+                                        d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                                </svg>
+                                <p className="leading-relaxed text-justify">
+                                    <span className={"text-xl font-bold"}>Pour une informatique durable, logique et locale</span><br /><br />
+                                    <b>Le constat d'un expert</b> : <br />En tant que professionnel de l'informatique depuis 25 ans, je fais un constat simple : le matériel professionnel (Dell Latitude, Lenovo ThinkPad...) est conçu pour durer 10 ans, mais les entreprises s'en séparent souvent après seulement 3 ou 4 ans. C'est un gaspillage écologique et économique immense que je ne peux plus accepter.
+                                    <br /><br />
+                                    <b>Une approche pragmatique contre l'obsolescence</b> : <br />Mon objectif est de donner la <b>meilleure seconde vie possible</b> à ces machines, sans dogmatisme :<br />
+                                    <ul>
+                                        <li><b>Les PC récents</b> : Ils sont reconditionnés sous Windows 11 Pro pour offrir une expérience moderne et performante aux standards actuels.</li>
+                                        <li><b>Les PC parfaitement fonctionnels mais jugés "obsolètes"</b> : Plutôt que la déchetterie, je leur offre une nouvelle jeunesse grâce à Linux Mint. C'est un système sécurisé, rapide et simple, qui permet de continuer à utiliser ces machines encore des années pour de la bureautique et du multimédia.</li>
+                                    </ul>
+                                    <br />
+                                    <b>Démocratiser la qualité Pro</b> : <br />IT-RECO a une mission locale : permettre aux étudiants, aux familles et aux associations de la Métropole Lilloise de s'équiper avec du <b>matériel professionnel robuste</b>, réparable et garanti, au prix du matériel d'entrée de gamme de grande surface. C'est cela, l'écologie concrète : moins de déchets, plus de pouvoir d'achat, et de la technologie qui dure.
+                                </p>
+                                <span className="inline-block h-1 w-10 rounded bg-primary mt-8 mb-6"></span>
+                                <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">Cyril Tonneville</h2>
+                                <p className="text-gray-500">Créateur d'IT-RECO</p>
+                            </div>
+
+                            <div className="w-full lg:w-1/2 flex items-center justify-center">
+                                <img src={cyril} alt="Cyril Tonneville" className="rounded-lg shadow-lg object-cover max-h-[600px] w-full" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -251,10 +251,11 @@ const Landing = () => {
                                     <FontAwesomeIcon icon={faDollarSign} size={"2xl"}></FontAwesomeIcon>
                                 </div>
                                 <div className="flex-grow">
-                                    <h2 className="text-lg title-font font-medium mb-3">Economique</h2>
+                                    <h2 className="text-lg title-font font-medium mb-3">Economique : Le modèle gagnant-gagnant</h2>
                                     <p className="leading-relaxed text-base">
-                                        Votre parc obsolète est revalorisé et peut vous rapporter de l'argent au lieu de
-                                        prendre la poussière dans un placard ou d'être mis à la poubelle
+                                        IT-RECO crée un pont entre deux besoins locaux. D'un côté, les entreprises <b>récupèrent de la trésorerie</b> (30% de reversement) sur un matériel qui dormait dans un placard. <br />
+                                        De l'autre, les particuliers et étudiants accèdent à du <b>matériel professionnel haut de gamme</b> pour le prix d'un ordinateur d'entrée de gamme.<br />
+                                        La valeur reste ainsi sur le territoire.
                                     </p>
                                 </div>
                             </div>
@@ -265,12 +266,11 @@ const Landing = () => {
                                     <FontAwesomeIcon icon={faLeaf} size={"2xl"}></FontAwesomeIcon>
                                 </div>
                                 <div className="flex-grow">
-                                    <h2 className="text-lg title-font font-medium mb-3">Ecologique</h2>
+                                    <h2 className="text-lg title-font font-medium mb-3">Ecologique : L'action la plus efficace</h2>
                                     <p className="leading-relaxed text-base">
-                                        En achetant de l'occasion revalorisée on évite d'allourdir notre empreinte carbone dûe à
-                                        la création d'un nouveau matériel. Saviez-vous que plusieurs centaines de kilos
-                                        de matériaux, de litres d'eau et de matières toxiques sont nécessaires pour la
-                                        production de seulement quelques kilos de matériels informatiques ?
+                                        <b>Le meilleur déchet est celui qu'on ne produit pas</b>.<br />
+                                        Saviez-vous que la fabrication d'un seul ordinateur portable génère environ <b>200 kg de CO2</b> et nécessite des milliers de litres d'eau ?<br />
+                                        En prolongeant la durée de vie de ces machines robustes via la réparation et l'optimisation (SSD/RAM), nous évitons concrètement ce gaspillage.
                                     </p>
                                 </div>
                             </div>
@@ -280,13 +280,11 @@ const Landing = () => {
                                     <FontAwesomeIcon icon={faRecycle} size={"2xl"}></FontAwesomeIcon>
                                 </div>
                                 <div className="flex-grow">
-                                    <h2 className="text-lg title-font font-medium mb-3">Solidaire</h2>
+                                    <h2 className="text-lg title-font font-medium mb-3">Solidaire : L'inclusion numérique de qualité</h2>
                                     <p className="leading-relaxed text-base">
-                                        Devenez acteur de l’économie circulaire.<br/>
-                                        Les ordinateurs d'entreprise sont généralement plus performant que ceux vendu au
-                                        grand publique non spécialisé. En permettant la revente de vos anciens matériels
-                                        vous permettez au plus grand nombre d'acquérir du matériel plus performant pour
-                                        moins cher.
+                                        L'informatique est un droit, pas un luxe.<br />
+                                        En reconditionnant des parcs professionnels (Dell, Lenovo, HP), IT-RECO permet aux familles et aux associations de s'équiper de <b>matériel fiable</b>, réparable et garanti.<br />
+                                        C'est lutter contre la fracture numérique avec des outils durables, loin de l'obsolescence programmée du matériel neuf "premier prix".
                                     </p>
                                 </div>
                             </div>
@@ -308,13 +306,15 @@ const Landing = () => {
                         <span className={"font-bold text-xl"}>Vous ?</span>
 
                         <div className={"w-full"}>
-                            <button onClick={() => handleAnchorClick('section-contact')} className={"btn btn-primary btn-sm mt-2 lg:mt-4"}>Contact</button>
+                            <button onClick={() => handleAnchorClick('section-contact')} className={"btn btn-primary btn-sm mt-2 lg:mt-4"}>Demander une Estimation Gratuite de mon Parc</button>
                         </div>
                     </div>
                 </div>
             </section>
 
             {!loading && <Boutique leboncoin={datas.leboncoin} />}
+
+            <Partenaire />
 
             <section className="body-font min-h-64" id={"section-contact"}>
                 <div className="container px-4 py-6 mx-auto">
@@ -354,13 +354,13 @@ const Landing = () => {
 
             {/*<section className="body-font min-h-64" id={"section-stats"}>*/}
             {/*    <div className="container py-6 px-4 mx-auto">*/}
-                    {/*<div className="w-full mb-6">*/}
-                    {/*    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Quelques statistiques</h1>*/}
-                    {/*    <div className="h-1 w-20 bg-primary rounded"></div>*/}
-                    {/*</div>*/}
+            {/*<div className="w-full mb-6">*/}
+            {/*    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">Quelques statistiques</h1>*/}
+            {/*    <div className="h-1 w-20 bg-primary rounded"></div>*/}
+            {/*</div>*/}
 
-                    {/*<Statistics />*/}
-                {/*</div>*/}
+            {/*<Statistics />*/}
+            {/*</div>*/}
             {/*</section>*/}
         </>
     );

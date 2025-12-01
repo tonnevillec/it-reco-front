@@ -9,6 +9,7 @@ import MultiSelect from "../../components/MultiSelect.jsx";
 import DisclaimerBoutique from "../boutique/DisclaimerBoutique.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHome} from "@fortawesome/free-solid-svg-icons";
+import InfoSerreVisInformatique from "../InfoSerreVisInformatique.jsx";
 
 const Store = () => {
     const params = useParams();
@@ -26,7 +27,7 @@ const Store = () => {
                 <div className="h-1 w-20 bg-primary rounded"></div>
             </div>
 
-            <DisclaimerBoutique />
+
 
             {params.id === "" || typeof params.id === 'undefined' ? <StoreSearch/> : <StoreDetails/>}
         </div>
@@ -163,56 +164,62 @@ const StoreSearch = () => {
 
     return (
         <section className={"pt-8 px-2 w-full mb-8"}>
+
+            <InfoSerreVisInformatique />
+
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div className={"w-full lg:col-span-3 bg-white border-primary border-2 h-72 p-4 rounded-tl-3xl rounded-br-3xl"}>
-                    <h2 className={"lg:text-xl uppercase text-center w-full mb-8 border-b-2"}>Rechercher un produit :</h2>
+                <div className={"w-full lg:col-span-3 bg-white"}>
+                    <div className={"border-primary border-2 h-72 p-4 rounded-tl-3xl rounded-br-3xl mb-4"}>
+                        <h2 className={"lg:text-xl uppercase text-center w-full mb-8 border-b-2"}>Rechercher un produit :</h2>
 
-                    <fieldset className="fieldset mb-4">
-                        <legend className="fieldset-legend">Chercher une référence</legend>
-                        <input type="text"
-                               className={"input w-full input-sm input-bordered"}
-                               placeholder="Désignation, modèle, ..."
-                               id={"search_word"}
-                               name={"search_word"}
-                               defaultValue={search.search_word}
-                               onChange={handleChange}
+                        <fieldset className="fieldset mb-4">
+                            <legend className="fieldset-legend">Chercher une référence</legend>
+                            <input type="text"
+                                   className={"input w-full input-sm input-bordered"}
+                                   placeholder="Désignation, modèle, ..."
+                                   id={"search_word"}
+                                   name={"search_word"}
+                                   defaultValue={search.search_word}
+                                   onChange={handleChange}
+                            />
+                        </fieldset>
+
+                        <MultiSelect
+                            id={"search_categorie"}
+                            name={"search_categorie"}
+                            label={"Catégories"}
+                            onChange={handleMulti}
+                            selectedValue={search.search_categorie}
+                            endpoint={'/api/categories'}
+                            containerClass={""}
                         />
-                    </fieldset>
 
-                    <MultiSelect
-                        id={"search_categorie"}
-                        name={"search_categorie"}
-                        label={"Catégories"}
-                        onChange={handleMulti}
-                        selectedValue={search.search_categorie}
-                        endpoint={'/api/categories'}
-                        containerClass={""}
-                    />
+                        <div className={"w-full flex justify-between mt-4 lg:mt-8"}>
+                            <div className={""}>
+                                {(search.search_word !== '' || search.search_categorie.length !== 0) &&
+                                    <button type={"button"} className={"btn btn-xs btn-outline"} onClick={handleReset}>Réinitialiser les filtres</button>
+                                }
+                            </div>
 
-                    <div className={"w-full flex justify-between mt-4 lg:mt-8"}>
-                        <div className={""}>
-                            {(search.search_word !== '' || search.search_categorie.length !== 0) &&
-                                <button type={"button"} className={"btn btn-xs btn-outline"} onClick={handleReset}>Réinitialiser les filtres</button>
-                            }
+                            <label htmlFor="itemsPerPage">
+                                <span className="me-2 text-sm">Afficher</span>
+                                <select id="itemsPerPage"
+                                        name="itemsPerPage"
+                                        className={"px-2 py-1 text-sm bg-white select select-sm select-bordered w-20"}
+                                        defaultValue={itemsPerPage}
+                                        onChange={handlePerPage}>
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="75">75</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <span className="ms-2 text-sm">éléments</span>
+                            </label>
                         </div>
-
-                        <label htmlFor="itemsPerPage">
-                            <span className="me-2 text-sm">Afficher</span>
-                            <select id="itemsPerPage"
-                                    name="itemsPerPage"
-                                    className={"px-2 py-1 text-sm bg-white select select-sm select-bordered w-20"}
-                                    defaultValue={itemsPerPage}
-                                    onChange={handlePerPage}>
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
-                            </select>
-                            <span className="ms-2 text-sm">éléments</span>
-                        </label>
                     </div>
 
+                    <DisclaimerBoutique />
                 </div>
 
                 <div className={"w-full lg:col-span-9"}>
